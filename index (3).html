@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ileladewa Ademidun Moronfoluwa | Premium Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#050505',
+                            charcoal: '#121214',
+                            pink: '#ffb7c5',
+                            rose: '#e0a996',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Premium Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- GSAP & Lenis Smooth Scroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #050505;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(18, 18, 20, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 183, 197, 0.1);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255, 183, 197, 0.3);
+        }
+        /* Custom scrollbar hides but stays functional */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e0a996;
+            border-radius: 3px;
+        }
+        .video-placeholder {
+            display: none;
+        }
+        .video-missing video {
+            display: none;
+        }
+        .video-missing .video-placeholder,
+        .placeholder-only .video-placeholder {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 1. CINEMATIC PRELOADER -->
+    <div id="preloader" class="fixed inset-0 z-50 flex flex-col justify-center items-center bg-brand-dark">
+        <div class="overflow-hidden text-center mb-4">
+            <h1 id="loader-name" class="font-serif text-3xl md:text-5xl font-bold tracking-widest text-brand-pink opacity-0">
+                ADEMIDUN MORONFOLUWA
+            </h1>
+        </div>
+        <p id="loader-subtitle" class="text-xs uppercase tracking-[0.3em] text-gray-500 opacity-0">
+            Digital Brand Storyteller
+        </p>
+        <div class="w-32 h-[1px] bg-gray-800 mt-8 relative overflow-hidden">
+            <div id="loader-bar" class="absolute inset-y-0 left-0 bg-brand-rose w-0"></div>
+        </div>
+    </div>
+
+    <!-- AMBIENT LIGHTING BACKGROUND ELEMENTS -->
+    <div class="fixed pointer-events-none inset-0 z-0 overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-brand-pink opacity-[0.03] blur-[120px]"></div>
+        <div class="absolute bottom-[20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-brand-rose opacity-[0.03] blur-[150px]"></div>
+    </div>
+
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="fixed top-0 inset-x-0 z-40 px-6 py-4 flex justify-between items-center glass-panel border-b border-opacity-10">
+        <a href="#" class="font-serif text-xl font-bold tracking-wider text-brand-pink text-glow">A.M</a>
+        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest text-gray-400">
+            <a href="#about" class="hover:text-brand-pink transition-colors">About</a>
+            <a href="#services" class="hover:text-brand-pink transition-colors">Services</a>
+            <a href="#portfolio" class="hover:text-brand-pink transition-colors">Work</a>
+            <a href="#journey" class="hover:text-brand-pink transition-colors">Timeline</a>
+            <a href="#contact" class="hover:text-brand-pink transition-colors">Contact</a>
+        </div>
+        <a href="#contact" class="px-5 py-2 text-xs uppercase tracking-widest border border-brand-rose border-opacity-40 rounded-full hover:bg-brand-rose hover:text-brand-dark transition-all duration-300">
+            Let's Work
+        </a>
+    </nav>
+
+    <!-- 2. HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 px-6 overflow-hidden z-10">
+        <div class="absolute inset-0 z-0">
+            <!-- Fullscreen portrait structure with a cinematic gradient mask overlay -->
+            <img src="IMG_3923.JPG" alt="Ileladewa Ademidun Moronfoluwa" class="w-full h-full object-cover object-top opacity-30 transform scale-105" id="hero-bg-img">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent"></div>
+        </div>
+
+        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10 items-center">
+            <div class="lg:col-span-7 space-y-6 text-left">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-pink/10 border border-brand-pink/20 text-xs text-brand-pink uppercase tracking-widest animate-pulse">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Available for New Projects
+                </span>
+                <h2 id="hero-headline" class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-white">
+                    Transforming Brands Into <span class="text-brand-pink text-glow">Stories</span> People Remember.
+                </h2>
+                <p id="hero-subheadline" class="text-gray-400 max-w-xl text-base sm:text-lg font-light leading-relaxed">
+                    Social Media Manager, Content Creator, and Digital Storyteller helping businesses build authentic connections, grow communities, and create meaningful online impact.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#portfolio" class="px-8 py-4 bg-brand-pink text-brand-dark font-medium rounded-xl hover:bg-white shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                        View Portfolio
+                    </a>
+                    <a href="#contact" class="px-8 py-4 glass-panel border border-white/10 text-white font-medium rounded-xl hover:bg-white/5 transition-all duration-300 transform hover:-translate-y-1">
+                        Contact Me <i class="fa-solid fa-arrow-right ml-2 text-brand-rose"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Foreground Layered Portrait Panel -->
+            <div class="lg:col-span-5 relative flex justify-center">
+                <div class="relative w-72 h-96 sm:w-80 sm:h-[450px] rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <img src="IMG_3923.JPG" alt="Portrait Portfolio" class="w-full h-full object-cover object-top">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 inset-x-4 glass-panel p-4 rounded-xl text-center">
+                        <p class="font-serif text-lg font-semibold text-white">Ademidun Moronfoluwa</p>
+                        <p class="text-xs text-brand-rose uppercase tracking-widest mt-0.5">Digital Brand Storyteller</p>
+                    </div>
+                </div>
+                <!-- Floating Social Badges -->
+                <div class="absolute -left-4 bottom-12 flex flex-col gap-3 z-20">
+                    <a href="https://www.linkedin.com/in/ademidun-oluwadarasimi-923a35244?trk=contact-info" target="_blank" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-brand-pink transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/ademidunmoronfoluwa?igsh=MW5vM3Y4MDh5bndnMg%3D%3D&utm_source=qr" target="_blank" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-brand-pink transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@ademi_darasimi/video/7590813874392157441?is_from_webapp=1&sender_device=mobile&sender_web_id=7601516843413128712" target="_blank" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-brand-pink transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://x.com/AdemidunOluwad1/status/2017971545335853479?s=20" target="_blank" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-brand-pink transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.facebook.com/ademidun.oluwadarasimi" target="_blank" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-brand-pink transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-1 opacity-60">
+            <span class="text-[10px] uppercase tracking-[0.3em] text-gray-400">Scroll</span>
+            <div class="w-1 h-6 bg-gray-800 rounded-full relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1/2 bg-brand-rose rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. ABOUT ME SECTION -->
+    <section id="about" class="py-32 px-6 relative z-10 bg-brand-charcoal/50 border-y border-white/5">
+        <div class="container mx-auto max-w-5xl">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-5 space-y-4">
+                    <span class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-rose block">About Me</span>
+                    <h3 class="font-serif text-3xl sm:text-5xl font-bold text-white leading-tight">The Mind Behind the Story</h3>
+                    <div class="w-20 h-[2px] bg-brand-pink"></div>
+                    <div class="pt-4 text-xs tracking-wider text-gray-500 uppercase flex flex-col gap-2">
+                        <p><i class="fa-solid fa-location-dot mr-2 text-brand-pink"></i> Lagos State, Nigeria</p>
+                    </div>
+                </div>
+                <div class="md:col-span-7 space-y-6 text-gray-300 font-light text-base sm:text-lg leading-relaxed">
+                    <p>
+                        I'm <strong class="text-white font-medium">Ileladewa Ademidun Moronfoluwa</strong> — a Social Media Manager, Content Creator, and Digital Brand Storyteller with a deep passion for helping brands find and amplify their authentic voice online.
+                    </p>
+                    <p>
+                        I believe the most powerful marketing isn't about selling — it's about connecting. Every brand carries a unique story, and my work is dedicated to crafting the right narrative, delivering it to the right audience, and making sure it leaves a lasting impression.
+                    </p>
+                    <p>
+                        From strategy to execution, content to community, I bring creativity, data, and heart to every project I touch. Brands don't just grow with me — they become memorable.
+                    </p>
+                    <div class="pt-4 border-l-2 border-brand-pink pl-6 italic text-xl text-white font-serif">
+                        "Every brand has a story. My job is making sure people remember it."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SERVICES SECTION -->
+    <section id="services" class="py-32 px-6 relative z-10">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center max-w-xl mx-auto mb-20 space-y-4">
+                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-rose block">What I Do</span>
+                <h3 class="font-serif text-3xl sm:text-5xl font-bold text-white">Services Crafted for Real Impact</h3>
+                <p class="text-gray-400 font-light text-sm sm:text-base">Tailored digital approaches constructed around high-converting creative narratives.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="service-card glass-panel p-8 rounded-2xl group hover:border-brand-pink/40 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-12 h-12 rounded-xl bg-brand-pink/10 flex items-center justify-center text-brand-pink text-xl mb-6 group-hover:bg-brand-pink group-hover:text-brand-dark transition-all duration-300">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Social Media Management</h4>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">End-to-end management of your social presence — content, scheduling, engagement, and growth across all major platforms.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card glass-panel p-8 rounded-2xl group hover:border-brand-pink/40 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-12 h-12 rounded-xl bg-brand-pink/10 flex items-center justify-center text-brand-pink text-xl mb-6 group-hover:bg-brand-pink group-hover:text-brand-dark transition-all duration-300">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Content Creation</h4>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">Compelling written, visual, and video content tailored to your brand voice and designed to stop the scroll.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card glass-panel p-8 rounded-2xl group hover:border-brand-pink/40 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-12 h-12 rounded-xl bg-brand-pink/10 flex items-center justify-center text-brand-pink text-xl mb-6 group-hover:bg-brand-pink group-hover:text-brand-dark transition-all duration-300">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Brand Strategy</h4>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">Defining your brand's story, positioning, tone, and digital identity so every post feels intentional and consistent.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="service-card glass-panel p-8 rounded-2xl group hover:border-brand-pink/40 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-12 h-12 rounded-xl bg-brand-pink/10 flex items-center justify-center text-brand-pink text-xl mb-6 group-hover:bg-brand-pink group-hover:text-brand-dark transition-all duration-300">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Community Management</h4>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">Building and nurturing engaged communities around your brand through authentic conversations and responsive engagement.</p>
+                </div>
+            </div>
+
+            <!-- Dynamic Additional Services Accordion -->
+            <div class="mt-12 max-w-3xl mx-auto space-y-4">
+                <div class="glass-panel rounded-xl overflow-hidden transition-all duration-300">
+                    <button onclick="toggleAccordion(this)" class="w-full p-5 flex justify-between items-center text-left text-white font-medium hover:text-brand-pink transition-colors">
+                        <span><i class="fa-solid fa-chart-line mr-3 text-brand-rose"></i> Strategic Audience Growth & Consulting</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-500 bg-brand-charcoal/30">
+                        <p class="p-5 text-sm text-gray-400 font-light leading-relaxed">
+                            Through targeted growth methodologies and platform analytics audits, I evaluate your metrics to unlock expanded reach, connect with intended user demographics, and ensure reliable cross-channel community positioning.
+                        </p>
+                    </div>
+                </div>
+                <div class="glass-panel rounded-xl overflow-hidden transition-all duration-300">
+                    <button onclick="toggleAccordion(this)" class="w-full p-5 flex justify-between items-center text-left text-white font-medium hover:text-brand-pink transition-colors">
+                        <span><i class="fa-solid fa-calendar-days mr-3 text-brand-rose"></i> Editorial Content Architecture & Planning</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-500 bg-brand-charcoal/30">
+                        <p class="p-5 text-sm text-gray-400 font-light leading-relaxed">
+                            Organizing extensive multi-platform scheduling tracks aligned with product milestones, digital campaigns, and real-time market trends to turn baseline posting patterns into reliable growth systems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SKILLS & EXPERTISE -->
+    <section class="py-24 px-6 relative z-10 bg-brand-charcoal/30">
+        <div class="container mx-auto max-w-4xl text-center">
+            <span class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-rose block mb-4">Expertise</span>
+            <h3 class="font-serif text-2xl sm:text-4xl font-bold text-white mb-12">Skills That Drive Results</h3>
+            
+            <div class="flex flex-wrap justify-center gap-3" id="skills-container">
+                <span class="px-5 py-3 rounded-xl glass-panel text-sm text-white font-light tracking-wide cursor-default hover:bg-brand-pink/10 hover:border-brand-pink/30 transition-all duration-300">Content Creation</span>
+                <span class="px-5 py-3 rounded-xl glass-panel text-sm text-white font-light tracking-wide cursor-default hover:bg-brand-pink/10 hover:border-brand-pink/30 transition-all duration-300">Social Media Marketing</span>
+                <span class="px-5 py-3 rounded-xl glass-panel text-sm text-white font-light tracking-wide cursor-default hover:bg-brand-pink/10 hover:border-brand-pink/30 transition-all duration-300">Canva Design</span>
+                <span class="px-5 py-3 rounded-xl glass-panel text-sm text-white font-light tracking-wide cursor-default hover:bg-brand-pink/10 hover:border-brand-pink/30 transition-all duration-300">Brand Storytelling</span>
+                <span class="px-5 py-3 rounded-xl glass-panel text-sm text-white font-light tracking-wide cursor-default hover:bg-brand-pink/10 hover:border-brand-pink/30 transition-all duration-300">Audience Growth</span>
+                <span class="px-5 py-3 rounded-xl glass-panel text-sm text-white font-light tracking-wide cursor-default hover:bg-brand-pink/10 hover:border-brand-pink/30 transition-all duration-300">Community Building</span>
+                <span class="px-5 py-3 rounded-xl glass-panel text-sm text-white font-light tracking-wide cursor-default hover:bg-brand-pink/10 hover:border-brand-pink/30 transition-all duration-300">Video Content Strategy</span>
+                <span class="px-5 py-3 rounded-xl glass-panel text-sm text-white font-light tracking-wide cursor-default hover:bg-brand-pink/10 hover:border-brand-pink/30 transition-all duration-300">Analytics & Insights</span>
+                <span class="px-5 py-3 rounded-xl glass-panel text-sm text-white font-light tracking-wide cursor-default hover:bg-brand-pink/10 hover:border-brand-pink/30 transition-all duration-300">Campaign Planning</span>
+                <span class="px-5 py-3 rounded-xl glass-panel text-sm text-white font-light tracking-wide cursor-default hover:bg-brand-pink/10 hover:border-brand-pink/30 transition-all duration-300">Communication</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FEATURED WORK SECTION (CINEMATIC HORIZONTAL SCROLL) -->
+    <section id="portfolio" class="py-32 relative z-10 overflow-hidden bg-brand-dark">
+        <div class="container mx-auto px-6 mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+            <div>
+                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-rose block mb-2">Portfolio</span>
+                <h3 class="font-serif text-3xl sm:text-5xl font-bold text-white">Featured Work</h3>
+            </div>
+            <p class="text-gray-400 font-light max-w-sm text-sm">A curated look at interactive brand campaigns engineered to stop the scroll.</p>
+        </div>
+
+        <!-- Horizontal Scroll Wrapper Component -->
+        <div class="relative overflow-x-auto flex gap-8 px-6 pb-8 scrollbar-hide snap-x" style="-ms-overflow-style: none; scroll-bar-width: none;">
+            <!-- Showcase Video 1 -->
+            <div class="min-w-[300px] sm:min-w-[450px] glass-panel rounded-2xl overflow-hidden flex-shrink-0 snap-center group">
+                <div class="h-64 bg-neutral-900 relative overflow-hidden">
+                    <video class="w-full h-full object-cover object-center" controls preload="metadata" playsinline onerror="showVideoPlaceholder(this)">
+                        <source src="AdeF1.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-placeholder absolute inset-0 flex-col items-center justify-center text-center px-8 bg-gradient-to-br from-brand-charcoal to-brand-dark">
+                        <i class="fa-solid fa-video text-3xl text-brand-pink mb-4"></i>
+                        <p class="text-white font-medium">AdeF1.mp4</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest mt-2">Add video file to activate</p>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent pointer-events-none"></div>
+                    <span class="absolute top-4 right-4 bg-brand-dark/80 px-3 py-1 rounded-full text-xs text-brand-pink uppercase tracking-widest border border-white/5 pointer-events-none">Showcase 01</span>
+                </div>
+                <div class="p-6 space-y-4">
+                    <h4 class="text-xl font-semibold text-white group-hover:text-brand-pink transition-colors">Featured Video Campaign 01</h4>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">A front-row showcase slot for short-form brand storytelling, campaign content, and social media creative work.</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 text-gray-300">Video</span>
+                        <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 text-gray-300">Campaign</span>
+                        <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 text-gray-300">Social</span>
+                    </div>
+                    <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-brand-rose">
+                        <span>File:</span>
+                        <span class="font-medium">AdeF1.mp4</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Showcase Video 2 -->
+            <div class="min-w-[300px] sm:min-w-[450px] glass-panel rounded-2xl overflow-hidden flex-shrink-0 snap-center group">
+                <div class="h-64 bg-neutral-900 relative overflow-hidden">
+                    <video class="w-full h-full object-cover object-center" controls preload="metadata" playsinline onerror="showVideoPlaceholder(this)">
+                        <source src="AdeF2.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-placeholder absolute inset-0 flex-col items-center justify-center text-center px-8 bg-gradient-to-br from-brand-charcoal to-brand-dark">
+                        <i class="fa-solid fa-video text-3xl text-brand-pink mb-4"></i>
+                        <p class="text-white font-medium">AdeF2.mp4</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest mt-2">Add video file to activate</p>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent pointer-events-none"></div>
+                    <span class="absolute top-4 right-4 bg-brand-dark/80 px-3 py-1 rounded-full text-xs text-brand-pink uppercase tracking-widest border border-white/5 pointer-events-none">Showcase 02</span>
+                </div>
+                <div class="p-6 space-y-4">
+                    <h4 class="text-xl font-semibold text-white group-hover:text-brand-pink transition-colors">Featured Video Campaign 02</h4>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">A polished showcase space for Reels, TikTok edits, launch videos, and creator-led brand moments.</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 text-gray-300">Video</span>
+                        <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 text-gray-300">Content</span>
+                    </div>
+                    <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-brand-rose">
+                        <span>File:</span>
+                        <span class="font-medium">AdeF2.mp4</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Showcase Video 3 -->
+            <div class="min-w-[300px] sm:min-w-[450px] glass-panel rounded-2xl overflow-hidden flex-shrink-0 snap-center group">
+                <div class="h-64 bg-neutral-900 relative overflow-hidden">
+                    <video class="w-full h-full object-cover object-center" controls preload="metadata" playsinline onerror="showVideoPlaceholder(this)">
+                        <source src="AdeF3.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-placeholder absolute inset-0 flex-col items-center justify-center text-center px-8 bg-gradient-to-br from-brand-charcoal to-brand-dark">
+                        <i class="fa-solid fa-video text-3xl text-brand-pink mb-4"></i>
+                        <p class="text-white font-medium">AdeF3.mp4</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest mt-2">Add video file to activate</p>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent pointer-events-none"></div>
+                    <span class="absolute top-4 right-4 bg-brand-dark/80 px-3 py-1 rounded-full text-xs text-brand-pink uppercase tracking-widest border border-white/5 pointer-events-none">Showcase 03</span>
+                </div>
+                <div class="p-6 space-y-4">
+                    <h4 class="text-xl font-semibold text-white group-hover:text-brand-pink transition-colors">Featured Video Campaign 03</h4>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">A focused slot for visual storytelling, audience hooks, and campaign-ready social video content.</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 text-gray-300">Video</span>
+                        <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 text-gray-300">Storytelling</span>
+                    </div>
+                    <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-brand-rose">
+                        <span>File:</span>
+                        <span class="font-medium">AdeF3.mp4</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Showcase Video 4 -->
+            <div class="min-w-[300px] sm:min-w-[450px] glass-panel rounded-2xl overflow-hidden flex-shrink-0 snap-center group">
+                <div class="h-64 bg-neutral-900 relative overflow-hidden">
+                    <video class="w-full h-full object-cover object-center" controls preload="metadata" playsinline onerror="showVideoPlaceholder(this)">
+                        <source src="AdeF4.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-placeholder absolute inset-0 flex-col items-center justify-center text-center px-8 bg-gradient-to-br from-brand-charcoal to-brand-dark">
+                        <i class="fa-solid fa-video text-3xl text-brand-pink mb-4"></i>
+                        <p class="text-white font-medium">AdeF4.mp4</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest mt-2">Add video file to activate</p>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent pointer-events-none"></div>
+                    <span class="absolute top-4 right-4 bg-brand-dark/80 px-3 py-1 rounded-full text-xs text-brand-pink uppercase tracking-widest border border-white/5 pointer-events-none">Showcase 04</span>
+                </div>
+                <div class="p-6 space-y-4">
+                    <h4 class="text-xl font-semibold text-white group-hover:text-brand-pink transition-colors">Featured Video Campaign 04</h4>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">A dedicated showcase panel for a fourth live video, matching the same visual treatment as the other portfolio clips.</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 text-gray-300">Video</span>
+                        <span class="text-xs px-2.5 py-1 rounded-md bg-white/5 text-gray-300">Portfolio</span>
+                    </div>
+                    <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-brand-rose">
+                        <span>File:</span>
+                        <span class="font-medium">AdeF4.mp4</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placeholder Video 5 -->
+            <div class="min-w-[300px] sm:min-w-[450px] glass-panel rounded-2xl overflow-hidden flex-shrink-0 snap-center group">
+                <div class="h-64 bg-neutral-900 relative overflow-hidden placeholder-only">
+                    <div class="video-placeholder absolute inset-0 flex-col items-center justify-center text-center px-8 bg-gradient-to-br from-brand-charcoal to-brand-dark">
+                        <i class="fa-solid fa-plus text-3xl text-brand-pink mb-4"></i>
+                        <p class="text-white font-medium">AdeF5.mp4</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest mt-2">Placeholder video slot</p>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent pointer-events-none"></div>
+                    <span class="absolute top-4 right-4 bg-brand-dark/80 px-3 py-1 rounded-full text-xs text-brand-pink uppercase tracking-widest border border-white/5">Coming Soon</span>
+                </div>
+                <div class="p-6 space-y-4">
+                    <h4 class="text-xl font-semibold text-white group-hover:text-brand-pink transition-colors">Upcoming Showcase 05</h4>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">Reserved for the next completed campaign video while keeping the portfolio layout ready for seven total clips.</p>
+                    <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-brand-rose">
+                        <span>File:</span>
+                        <span class="font-medium">AdeF5.mp4</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placeholder Video 6 -->
+            <div class="min-w-[300px] sm:min-w-[450px] glass-panel rounded-2xl overflow-hidden flex-shrink-0 snap-center group">
+                <div class="h-64 bg-neutral-900 relative overflow-hidden placeholder-only">
+                    <div class="video-placeholder absolute inset-0 flex-col items-center justify-center text-center px-8 bg-gradient-to-br from-brand-charcoal to-brand-dark">
+                        <i class="fa-solid fa-plus text-3xl text-brand-pink mb-4"></i>
+                        <p class="text-white font-medium">AdeF6.mp4</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest mt-2">Placeholder video slot</p>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent pointer-events-none"></div>
+                    <span class="absolute top-4 right-4 bg-brand-dark/80 px-3 py-1 rounded-full text-xs text-brand-pink uppercase tracking-widest border border-white/5">Coming Soon</span>
+                </div>
+                <div class="p-6 space-y-4">
+                    <h4 class="text-xl font-semibold text-white group-hover:text-brand-pink transition-colors">Upcoming Showcase 06</h4>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">Reserved for a future video case study, so new work can be added without redesigning this section.</p>
+                    <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-brand-rose">
+                        <span>File:</span>
+                        <span class="font-medium">AdeF6.mp4</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placeholder Video 7 -->
+            <div class="min-w-[300px] sm:min-w-[450px] glass-panel rounded-2xl overflow-hidden flex-shrink-0 snap-center group">
+                <div class="h-64 bg-neutral-900 relative overflow-hidden placeholder-only">
+                    <div class="video-placeholder absolute inset-0 flex-col items-center justify-center text-center px-8 bg-gradient-to-br from-brand-charcoal to-brand-dark">
+                        <i class="fa-solid fa-plus text-3xl text-brand-pink mb-4"></i>
+                        <p class="text-white font-medium">AdeF7.mp4</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest mt-2">Placeholder video slot</p>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent pointer-events-none"></div>
+                    <span class="absolute top-4 right-4 bg-brand-dark/80 px-3 py-1 rounded-full text-xs text-brand-pink uppercase tracking-widest border border-white/5">Coming Soon</span>
+                </div>
+                <div class="p-6 space-y-4">
+                    <h4 class="text-xl font-semibold text-white group-hover:text-brand-pink transition-colors">Upcoming Showcase 07</h4>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">Reserved for the seventh portfolio video, completing the requested AdeF1 through AdeF7 showcase set.</p>
+                    <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-brand-rose">
+                        <span>File:</span>
+                        <span class="font-medium">AdeF7.mp4</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. RESULTS & IMPACT SECTION -->
+    <section class="py-24 px-6 relative z-10 bg-brand-charcoal/40 border-y border-white/5">
+        <div class="container mx-auto max-w-5xl">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center" id="counters-section">
+                <div class="space-y-2">
+                    <h3 class="font-serif text-4xl sm:text-5xl font-bold text-brand-pink text-glow counting-num" data-target="80">0</h3>
+                    <p class="text-xs uppercase tracking-widest text-gray-400 font-light">Campaigns Created</p>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="font-serif text-4xl sm:text-5xl font-bold text-brand-pink text-glow counting-num" data-target="40">0</h3>
+                    <p class="text-xs uppercase tracking-widest text-gray-400 font-light">Brands Supported</p>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="font-serif text-4xl sm:text-5xl font-bold text-brand-pink text-glow counting-num" data-target="500">0</h3>
+                    <p class="text-xs uppercase tracking-widest text-gray-400 font-light">Audience Reach (K+)</p>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="font-serif text-4xl sm:text-5xl font-bold text-brand-pink text-glow counting-num" data-target="4">0</h3>
+                    <p class="text-xs uppercase tracking-widest text-gray-400 font-light">Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CAREER JOURNEY TIMELINE -->
+    <section id="journey" class="py-32 px-6 relative z-10">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center max-w-md mx-auto mb-20 space-y-4">
+                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-rose block">History</span>
+                <h3 class="font-serif text-3xl sm:text-5xl font-bold text-white">Career Journey</h3>
+            </div>
+
+            <div class="relative border-l border-white/10 ml-4 md:ml-32 space-y-12">
+                <!-- Node 1 -->
+                <div class="relative pl-8 timeline-node">
+                    <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-brand-pink shadow-[0_0_10px_#ffb7c5]"></div>
+                    <span class="text-xs text-brand-rose font-medium tracking-widest block mb-1">Education</span>
+                    <h4 class="text-lg font-semibold text-white mb-2">Communication & Media Studies Foundations</h4>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed">Built an academic foundation in media aesthetics and communication strategies, mastering audience reception patterns and baseline engagement logic.</p>
+                </div>
+                <!-- Node 2 -->
+                <div class="relative pl-8 timeline-node">
+                    <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-brand-pink shadow-[0_0_10px_#ffb7c5]"></div>
+                    <span class="text-xs text-brand-rose font-medium tracking-widest block mb-1">Early Career</span>
+                    <h4 class="text-lg font-semibold text-white mb-2">First Cross-Channel Management Roles</h4>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed">Managed organic communications footprints for local commercial enterprises, specializing in emotional brand connectivity frameworks.</p>
+                </div>
+                <!-- Node 3 -->
+                <div class="relative pl-8 timeline-node">
+                    <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-brand-pink shadow-[0_0_10px_#ffb7c5]"></div>
+                    <span class="text-xs text-brand-rose font-medium tracking-widest block mb-1">Expansion</span>
+                    <h4 class="text-lg font-semibold text-white mb-2">Content Strategy & Scale Operations</h4>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed">Expanded into full campaign production tracks, tracking real-time platform algorithm shifts and visual positioning mechanics.</p>
+                </div>
+                <!-- Node 4 -->
+                <div class="relative pl-8 timeline-node">
+                    <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-brand-pink shadow-[0_0_10px_#ffb7c5]"></div>
+                    <span class="text-xs text-brand-rose font-medium tracking-widest block mb-1">Present</span>
+                    <h4 class="text-lg font-semibold text-white mb-2">Independent Digital Brand Architecture</h4>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed">Providing high-end cross-channel content consulting for growth brands across regional markets, creating valuable, conversion-focused audience networks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. TESTIMONIALS SECTION -->
+    <section class="py-32 px-6 relative z-10 bg-brand-charcoal/30 border-t border-white/5">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center max-w-md mx-auto mb-20 space-y-4">
+                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-rose block">Endorsements</span>
+                <h3 class="font-serif text-3xl sm:text-5xl font-bold text-white">What Partners Say</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-8 rounded-2xl space-y-6">
+                    <div class="text-amber-300 text-sm flex gap-1"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-300 font-light text-sm leading-relaxed">"Ademidun transformed our brand's Instagram presence completely. Within three months, our engagement tripled and we started getting direct inquiries through social media for the first time."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-pink to-brand-rose text-brand-dark font-bold text-xs flex items-center justify-center">AO</div>
+                        <div><h5 class="text-sm font-semibold text-white">Adaeze Okafor</h5><p class="text-[11px] text-gray-500">CEO, Adaeze Fashion Lagos</p></div>
+                    </div>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl space-y-6">
+                    <div class="text-amber-300 text-sm flex gap-1"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-300 font-light text-sm leading-relaxed">"Working with Ademidun felt like having a creative partner who truly understood our brand vision. The content she created didn't just look beautiful — it converted perfectly."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-pink to-brand-rose text-brand-dark font-bold text-xs flex items-center justify-center">EN</div>
+                        <div><h5 class="text-sm font-semibold text-white">Emeka Nwosu</h5><p class="text-[11px] text-gray-500">Founder, Lagos Tech Startup</p></div>
+                    </div>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl space-y-6">
+                    <div class="text-amber-300 text-sm flex gap-1"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-300 font-light text-sm leading-relaxed">"She has an extraordinary ability to distill complex ideas into stories that audiences actually want to follow. Our LinkedIn following grew dramatically under her management."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-pink to-brand-rose text-brand-dark font-bold text-xs flex items-center justify-center">TA</div>
+                        <div><h5 class="text-sm font-semibold text-white">Taiwo Adeleke</h5><p class="text-[11px] text-gray-500">Business Coach & Speaker</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. SOCIAL NETWORKS GRID -->
+    <section class="py-24 px-6 relative z-10 bg-brand-dark">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h4 class="font-serif text-xl font-medium text-white mb-8">Connect Across Ecosystems</h4>
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-4">
+                <a href="https://www.linkedin.com/in/ademidun-oluwadarasimi-923a35244?trk=contact-info" target="_blank" class="p-6 glass-panel rounded-xl flex flex-col items-center gap-3 hover:border-brand-pink/30 hover:bg-white/[0.02] transition-all">
+                    <i class="fa-brands fa-linkedin text-2xl text-[#0077b5]"></i><span class="text-xs tracking-wider text-gray-300">LinkedIn</span>
+                </a>
+                <a href="https://www.instagram.com/ademidunmoronfoluwa?igsh=MW5vM3Y4MDh5bndnMg%3D%3D&utm_source=qr" target="_blank" class="p-6 glass-panel rounded-xl flex flex-col items-center gap-3 hover:border-brand-pink/30 hover:bg-white/[0.02] transition-all">
+                    <i class="fa-brands fa-instagram text-2xl text-[#fccc63]"></i><span class="text-xs tracking-wider text-gray-300">Instagram</span>
+                </a>
+                <a href="https://www.tiktok.com/@ademi_darasimi/video/7590813874392157441?is_from_webapp=1&sender_device=mobile&sender_web_id=7601516843413128712" target="_blank" class="p-6 glass-panel rounded-xl flex flex-col items-center gap-3 hover:border-brand-pink/30 hover:bg-white/[0.02] transition-all">
+                    <i class="fa-brands fa-tiktok text-2xl text-white"></i><span class="text-xs tracking-wider text-gray-300">TikTok</span>
+                </a>
+                <a href="https://x.com/AdemidunOluwad1/status/2017971545335853479?s=20" target="_blank" class="p-6 glass-panel rounded-xl flex flex-col items-center gap-3 hover:border-brand-pink/30 hover:bg-white/[0.02] transition-all">
+                    <i class="fa-brands fa-x-twitter text-2xl text-gray-200"></i><span class="text-xs tracking-wider text-gray-300">Twitter (X)</span>
+                </a>
+                <a href="https://www.facebook.com/ademidun.oluwadarasimi" target="_blank" class="p-6 glass-panel rounded-xl flex flex-col items-center gap-3 hover:border-brand-pink/30 hover:bg-white/[0.02] transition-all col-span-2 sm:col-span-1">
+                    <i class="fa-brands fa-facebook text-2xl text-[#1877f2]"></i><span class="text-xs tracking-wider text-gray-300">Facebook</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. CONTACT SECTION -->
+    <section id="contact" class="py-32 px-6 relative z-10 bg-gradient-to-b from-brand-dark to-brand-charcoal">
+        <div class="container mx-auto max-w-5xl">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left Details Box -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="space-y-4">
+                        <span class="text-xs font-semibold uppercase tracking-[0.25em] text-brand-rose block">Get In Touch</span>
+                        <h3 class="font-serif text-3xl sm:text-5xl font-bold text-white leading-tight">Let's Create Something Remarkable</h3>
+                    </div>
+                    <p class="text-gray-400 font-light text-sm sm:text-base leading-relaxed">
+                        Ready to elevate your brand's operational output and connect meaningfully with your primary growth markets? Let's connect.
+                    </p>
+                    <div class="space-y-4 text-sm text-gray-300">
+                        <div class="flex items-center gap-4 p-4 rounded-xl glass-panel">
+                            <i class="fa-solid fa-envelope text-brand-pink text-lg"></i>
+                            <a href="mailto:ademidunoluwadarasimi92@gmail.com" class="hover:text-brand-pink transition-colors">ademidunoluwadarasimi92@gmail.com</a>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 rounded-xl glass-panel">
+                            <i class="fa-solid fa-phone text-brand-pink text-lg"></i>
+                            <a href="tel:09152615172" class="hover:text-brand-pink transition-colors">09152615172</a>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 rounded-xl glass-panel">
+                            <i class="fa-brands fa-whatsapp text-brand-pink text-xl"></i>
+                            <a href="https://wa.me/2349033791013" target="_blank" class="hover:text-brand-pink transition-colors">09033791013</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Premium Contact Form -->
+                <div class="lg:col-span-7">
+                    <form class="glass-panel p-8 rounded-2xl space-y-6" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-wider text-gray-400">First Name</label>
+                                <input type="text" placeholder="Your first name" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-pink transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-wider text-gray-400">Last Name</label>
+                                <input type="text" placeholder="Your last name" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-pink transition-all">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-wider text-gray-400">Email Address</label>
+                            <input type="email" placeholder="your@email.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-pink transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-wider text-gray-400">Service Needed</label>
+                            <select class="w-full bg-brand-charcoal border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-pink transition-all">
+                                <option>Social Media Management</option>
+                                <option>Content Creation Track</option>
+                                <option>Brand Strategy Engagement</option>
+                                <option>Growth Consultation Track</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-wider text-gray-400">Message</label>
+                            <textarea rows="4" placeholder="Tell me about your brand targets..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-pink transition-all resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-brand-pink text-brand-dark font-medium rounded-xl hover:bg-white transition-all duration-300">
+                            Send Message Framework <i class="fa-solid fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER LUXURY MINIMALIST -->
+    <footer class="py-12 px-6 border-t border-white/5 bg-brand-dark text-center space-y-6">
+        <h2 class="font-serif text-xl font-bold tracking-widest text-brand-pink">ILELADEWA ADEMIDUN MORONFOLUWA</h2>
+        <p class="text-gray-500 font-light text-xs max-w-sm mx-auto leading-relaxed">Thank you for visiting. Let's create something remarkable together.</p>
+        <div class="flex justify-center space-x-6 text-gray-400 text-sm">
+            <a href="https://www.linkedin.com/in/ademidun-oluwadarasimi-923a35244?trk=contact-info" target="_blank" class="hover:text-brand-pink"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/ademidunmoronfoluwa?igsh=MW5vM3Y4MDh5bndnMg%3D%3D&utm_source=qr" target="_blank" class="hover:text-brand-pink"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@ademi_darasimi/video/7590813874392157441?is_from_webapp=1&sender_device=mobile&sender_web_id=7601516843413128712" target="_blank" class="hover:text-brand-pink"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://x.com/AdemidunOluwad1/status/2017971545335853479?s=20" target="_blank" class="hover:text-brand-pink"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+        <p class="text-[10px] text-gray-600 tracking-wider pt-4">&copy; 2026 Ileladewa Ademidun Moronfoluwa. All Rights Reserved.</p>
+    </footer>
+
+    <!-- INTERACTIVE ANIMATION ARCHITECTURE ENGINE LINK -->
+    <script>
+        // Smooth Scrolling initialization using Lenis
+        const lenis = new Lenis();
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Connect ScrollTrigger directly to Lenis scroll engine
+        lenis.on('scroll', ScrollTrigger.update);
+
+        // Core Interaction Animation Sequences
+        window.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Preloader Timeline Sequence Setup
+            const loaderTl = gsap.timeline({
+                onComplete: () => {
+                    document.getElementById('preloader').style.display = 'none';
+                    initHeroAnimations();
+                }
+            });
+
+            loaderTl.to('#loader-name', { opacity: 1, duration: 1, ease: 'power2.out', delay: 0.2 })
+                    .to('#loader-subtitle', { opacity: 1, duration: 0.8 }, '-=0.5')
+                    .to('#loader-bar', { width: '100%', duration: 1.5, ease: 'power4.inOut' }, '-=0.8')
+                    .to('#preloader', { opacity: 0, duration: 0.6, ease: 'power2.inOut' });
+
+            // Hero Animation Entry Execution
+            function initHeroAnimations() {
+                gsap.from('#hero-headline', { y: 40, opacity: 0, duration: 1, ease: 'power3.out' });
+                gsap.from('#hero-subheadline', { y: 20, opacity: 0, duration: 1, ease: 'power3.out' }, '-=0.7');
+                gsap.from('#hero-bg-img', { scale: 1.15, duration: 2.5, ease: 'power2.out' }, '-=1');
+            }
+
+            // ScrollTrigger Timeline Track Declarations
+            // Stagger Timeline nodes presentation
+            gsap.from('.timeline-node', {
+                scrollTrigger: {
+                    trigger: '#journey',
+                    start: 'top 75%',
+                },
+                x: -30,
+                opacity: 0,
+                stagger: 0.25,
+                duration: 1,
+                ease: 'power2.out'
+            });
+
+            // Service Cards Fade-In Sequences
+            gsap.from('.service-card', {
+                scrollTrigger: {
+                    trigger: '#services',
+                    start: 'top 70%',
+                },
+                y: 40,
+                opacity: 0,
+                stagger: 0.15,
+                duration: 0.8,
+                ease: 'power2.out'
+            });
+
+            // Interactive Numbers Incrementing Counters Logic
+            ScrollTrigger.create({
+                trigger: '#counters-section',
+                start: 'top 80%',
+                onEnter: () => {
+                    document.querySelectorAll('.counting-num').forEach(num => {
+                        const target = +num.getAttribute('data-target');
+                        const counterObj = { val: 0 };
+                        gsap.to(counterObj, {
+                            val: target,
+                            duration: 2,
+                            ease: 'power3.out',
+                            onUpdate: () => {
+                                num.innerText = Math.floor(counterObj.val) + (target === 500 ? 'K+' : '+');
+                            }
+                        });
+                    });
+                }
+            });
+        });
+
+        // Interface Utility Methods
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.fa-chevron-down');
+            
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0px';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        function showVideoPlaceholder(video) {
+            video.closest('.relative').classList.add('video-missing');
+        }
+    </script>
+</body>
+</html>
